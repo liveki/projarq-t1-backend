@@ -1,16 +1,14 @@
-package com.bcopstein;
+package com.bcopstein.negocio.entidades;
 
 public class Produto {
   private int codigo;
   private String descricao;
   private double preco;
-  private int qtdade;
-
-  public Produto(int codigo, String descricao, double preco, int qtdade) {
+  
+  public Produto(int codigo, String descricao, double preco) {
     this.codigo = codigo;
     this.descricao = descricao;
     this.preco = preco;
-    this.qtdade = qtdade;
   }
 
   public int getCodigo() {
@@ -25,14 +23,6 @@ public class Produto {
     return preco;
   }
 
-  public int getQtdade() {
-    return qtdade;
-  }
-
-  public void saidaDeProduto(int qtdade) {
-    this.qtdade -= qtdade;
-  }
-
   public void setPreco(double preco) {
     this.preco = preco;
   }
@@ -40,6 +30,6 @@ public class Produto {
   @Override
   public String toString() {
     return "Produto [codigo=" + codigo + ", descricao=" + descricao + ", preco=" + preco
-        + ", qtdade=" + qtdade + "]";
+        + "]";
   }
 }
