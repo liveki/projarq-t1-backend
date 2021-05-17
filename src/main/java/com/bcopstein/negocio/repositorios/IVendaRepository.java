@@ -6,7 +6,7 @@ import com.bcopstein.negocio.entidades.Venda;
 
 public interface IVendaRepository {
 
-    void cadastra(Venda venda);
-    
-    List<Venda> todos();
+  void cadastra(Venda venda);
+
+  List<Venda> todos();
 }

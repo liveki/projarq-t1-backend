@@ -9,22 +9,20 @@ import org.springframework.stereotype.Service;
 @Service
 public class ServicoEstoque {
 
-    private IEstoqueRepository estoqueRepository;
+  private IEstoqueRepository estoqueRepository;
 
-    @Autowired
-    public ServicoEstoque(IEstoqueRepository estoqueRepository) {
-        this.estoqueRepository = estoqueRepository;
-    }
+  @Autowired
+  public ServicoEstoque(IEstoqueRepository estoqueRepository) {
+    this.estoqueRepository = estoqueRepository;
+  }
 
-    public boolean podeVender(int codProduto, int quantidade){
-        
-        boolean disponivel = false;
-        ItemEstoque produtoEncontrado = estoqueRepository.getProduto(codProduto);
-        disponivel = produtoEncontrado.getQtdade() >= quantidade;
+  public boolean podeVender(int codProduto, int quantidade) {
 
-        return disponivel;
-    }
+    boolean disponivel = false;
+    ItemEstoque produtoEncontrado = estoqueRepository.getProduto(codProduto);
+    disponivel = produtoEncontrado.getQtdade() >= quantidade;
 
-    
-    
+    return disponivel;
+  }
+
 }

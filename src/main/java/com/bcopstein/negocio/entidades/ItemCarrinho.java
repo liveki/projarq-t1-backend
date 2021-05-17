@@ -1,20 +1,20 @@
 package com.bcopstein.negocio.entidades;
 
 public class ItemCarrinho {
-  private int codigo;
+  private Produto produto;
   private int quantidade;
 
-  public ItemCarrinho(int codigo, int quantidade) {
-    this.codigo = codigo;
+  public ItemCarrinho(Produto produto, int quantidade) {
+    this.produto = produto;
     this.quantidade = quantidade;
   }
 
-  public int getCodigo() {
-    return codigo;
+  public Produto getProduto() {
+    return produto;
   }
 
-  public void setCodigo(int codigo) {
-    this.codigo = codigo;
+  public void setProduto(Produto produto) {
+    this.produto = produto;
   }
 
   public int getQuantidade() {
@@ -27,6 +27,6 @@ public class ItemCarrinho {
 
   @Override
   public String toString() {
-    return "ItemCarrinho [codigo=" + codigo + ", qtd=" + quantidade + "]";
+    return "ItemCarrinho [produto=" + produto.toString() + ", qtd=" + quantidade + "]";
   }
 }

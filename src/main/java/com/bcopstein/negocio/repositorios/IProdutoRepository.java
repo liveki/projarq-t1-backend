@@ -6,6 +6,6 @@ import com.bcopstein.negocio.entidades.Produto;
 
 public interface IProdutoRepository {
 
-    List<Produto> todos();
-    
+  List<Produto> todos();
+
 }
