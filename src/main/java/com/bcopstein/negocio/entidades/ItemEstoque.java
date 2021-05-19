@@ -2,13 +2,24 @@ package com.bcopstein.negocio.entidades;
 
 public class ItemEstoque {
 
+    private Integer codEstoque;
     private Produto produto;
     private int qtdade;
 
 
-    public ItemEstoque(Produto produto, int qtdade) {
+    public ItemEstoque(Integer codEstoque, Produto produto, int qtdade) {
+        this.codEstoque = codEstoque;
         this.produto = produto;
         this.qtdade = qtdade;
+    }
+
+    public Integer getCodEstoque() {
+        return codEstoque;
+    }
+
+
+    public void setCodEstoque(Integer codEstoque) {
+        this.codEstoque = codEstoque;
     }
 
 

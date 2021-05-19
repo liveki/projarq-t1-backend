@@ -5,14 +5,20 @@ public class ImpostoChile implements ICalculoImposto {
 
   @Override
   public Integer calculaImposto(Integer valorTotalCompra) {
-    Integer porcentagemImposto = 0;
+    Integer porcentagemImposto = 15;
+    
+    if(valorTotalCompra > VALOR_PARA_IVA_MINIMO){
+      
+      Integer valorRestante = valorTotalCompra - VALOR_PARA_IVA_MINIMO;
+      Integer valorParcial = VALOR_PARA_IVA_MINIMO * porcentagemImposto / 100;
 
-    if (valorTotalCompra <= VALOR_PARA_IVA_MINIMO) {
-      porcentagemImposto = 15;
-    } else {
       porcentagemImposto = 20;
+      valorRestante = valorRestante * porcentagemImposto / 100;
+
+      return valorParcial + valorRestante;
     }
 
+    
     return valorTotalCompra * porcentagemImposto / 100;
   }
 

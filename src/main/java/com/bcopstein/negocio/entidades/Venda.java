@@ -4,16 +4,27 @@ import java.util.List;
 
 public class Venda {
     
+    private Integer codVenda;
     private Double subtotal;
     private Double impostos;
     private Double total;
     private List<ItemCarrinho> produtos;
 
-    public Venda(Double subtotal, Double impostos, Double total, List<ItemCarrinho> produtos) {
+    public Venda(Integer codVenda, Double subtotal, Double impostos, Double total, List<ItemCarrinho> produtos) {
+        this.codVenda = codVenda;
         this.subtotal = subtotal;
         this.impostos = impostos;
         this.total = total;
         this.produtos = produtos;
+    }
+
+ 
+    public Integer getCodVenda() {
+        return codVenda;
+    }
+
+    public void setCodVenda(Integer codVenda) {
+        this.codVenda = codVenda;
     }
 
     public Double getSubtotal() {

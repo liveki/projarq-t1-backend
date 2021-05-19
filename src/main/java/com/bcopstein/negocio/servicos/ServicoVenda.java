@@ -3,6 +3,8 @@ package com.bcopstein.negocio.servicos;
 import java.util.List;
 
 import com.bcopstein.aplicacao.servicos.ICalculoImposto;
+import com.bcopstein.aplicacao.servicos.IRestricaoHorarioVenda;
+import com.bcopstein.aplicacao.servicos.RestricaoVendaFactory;
 import com.bcopstein.negocio.entidades.ItemCarrinho;
 import com.bcopstein.negocio.entidades.Venda;
 import com.bcopstein.negocio.repositorios.IVendaRepository;
@@ -21,8 +23,16 @@ public class ServicoVenda {
     this.calculoImposto = calculoImposto;
   }
 
-  public void cadastraVenda(Venda novaVenda) {
-    this.vendaRepository.cadastra(novaVenda);
+  public boolean cadastraVenda(Venda novaVenda) {
+    IRestricaoHorarioVenda restricaoVenda = RestricaoVendaFactory.getInstance();
+    boolean vendaIsValida = restricaoVenda.vendaIsValida(novaVenda);
+
+    if(vendaIsValida){
+      this.vendaRepository.cadastra(novaVenda);
+    }
+
+    return false;
+    
   }
 
   public Integer[] consultaVenda(List<ItemCarrinho> itens) {
