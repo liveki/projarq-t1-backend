@@ -10,27 +10,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Venda_IMPL implements IVendaRepository{
+public class Venda_IMPL implements IVendaRepository {
 
-    private IVendaRepositoryJPA vendaRepository;
+  private IVendaRepositoryJPA vendaRepository;
 
-    
-    @Autowired
-    public Venda_IMPL(IVendaRepositoryJPA vendaRepository) {
-        this.vendaRepository = vendaRepository;
-    }
+  @Autowired
+  public Venda_IMPL(IVendaRepositoryJPA vendaRepository) {
+    this.vendaRepository = vendaRepository;
+  }
 
-    @Override
-    public void cadastra(Venda venda) {
-        vendaRepository.save(venda);
-                
-    }
+  @Override
+  public void cadastra(Venda venda) {
+    vendaRepository.save(venda);
 
-    @Override
-    public List<Venda> todos() {
-        return vendaRepository.findAll();
-    }
+  }
 
+  @Override
+  public List<Venda> todos() {
+    return vendaRepository.findAll();
+  }
 
-    
 }

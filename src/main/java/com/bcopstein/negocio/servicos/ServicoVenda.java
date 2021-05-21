@@ -27,17 +27,16 @@ public class ServicoVenda {
     IRestricaoHorarioVenda restricaoVenda = RestricaoVendaFactory.getInstance();
     boolean vendaIsValida = restricaoVenda.vendaIsValida(novaVenda);
 
-    if(vendaIsValida){
+    if (vendaIsValida) {
       this.vendaRepository.cadastra(novaVenda);
     }
 
     return false;
-    
+
   }
 
   public Integer[] consultaVenda(List<ItemCarrinho> itens) {
     Integer subtotal = 0;
-    Integer valorTotalCompra = 0;
     Integer imposto = 0;
 
     for (final ItemCarrinho prod : itens) {
@@ -57,5 +56,9 @@ public class ServicoVenda {
     resp[2] = subtotal + imposto;
 
     return resp;
+  }
+
+  public List<Venda> todos() {
+    return vendaRepository.todos();
   }
 }

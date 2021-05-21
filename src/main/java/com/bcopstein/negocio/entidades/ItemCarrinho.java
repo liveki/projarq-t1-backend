@@ -1,5 +1,8 @@
 package com.bcopstein.negocio.entidades;
 
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class ItemCarrinho {
   private Produto produto;
   private int quantidade;

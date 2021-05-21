@@ -1,5 +1,8 @@
 package com.bcopstein.aplicacao.casosDeUso;
 
+import java.util.List;
+
+import com.bcopstein.negocio.entidades.ItemCarrinho;
 import com.bcopstein.negocio.entidades.Venda;
 import com.bcopstein.negocio.servicos.ServicoVenda;
 
@@ -15,7 +18,9 @@ public class CadastraVendaUC {
     this.servicoVenda = servicoVenda;
   }
 
-  public void executar(Venda novaVenda) {
-    servicoVenda.cadastraVenda(novaVenda);
+  public boolean executar(List<ItemCarrinho> itens) {
+    Integer[] valores = servicoVenda.consultaVenda(itens);
+    Venda novaVenda = new Venda(valores[0], valores[1], valores[2], itens);
+    return servicoVenda.cadastraVenda(novaVenda);
   }
 }

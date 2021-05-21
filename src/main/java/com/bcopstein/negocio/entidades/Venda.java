@@ -2,64 +2,81 @@ package com.bcopstein.negocio.entidades;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Venda {
-    
-    private Integer codVenda;
-    private Double subtotal;
-    private Double impostos;
-    private Double total;
-    private List<ItemCarrinho> produtos;
 
-    public Venda(Integer codVenda, Double subtotal, Double impostos, Double total, List<ItemCarrinho> produtos) {
-        this.codVenda = codVenda;
-        this.subtotal = subtotal;
-        this.impostos = impostos;
-        this.total = total;
-        this.produtos = produtos;
-    }
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column(name = "cod_venda")
+  private Integer codVenda;
+  private Integer subtotal;
+  private Integer impostos;
+  private Integer total;
 
- 
-    public Integer getCodVenda() {
-        return codVenda;
-    }
+  @Embedded
+  private List<ItemCarrinho> produtos;
 
-    public void setCodVenda(Integer codVenda) {
-        this.codVenda = codVenda;
-    }
+  public Venda(Integer codVenda, Integer subtotal, Integer impostos, Integer total, List<ItemCarrinho> produtos) {
+    this.codVenda = codVenda;
+    this.subtotal = subtotal;
+    this.impostos = impostos;
+    this.total = total;
+    this.produtos = produtos;
+  }
 
-    public Double getSubtotal() {
-        return subtotal;
-    }
+  public Venda(Integer subtotal, Integer impostos, Integer total, List<ItemCarrinho> produtos) {
+    this.subtotal = subtotal;
+    this.impostos = impostos;
+    this.total = total;
+    this.produtos = produtos;
+  }
 
-    public void setSubtotal(Double subtotal) {
-        this.subtotal = subtotal;
-    }
+  public Integer getCodVenda() {
+    return codVenda;
+  }
 
-    public Double getImpostos() {
-        return impostos;
-    }
+  public void setCodVenda(Integer codVenda) {
+    this.codVenda = codVenda;
+  }
 
-    public void setImpostos(Double impostos) {
-        this.impostos = impostos;
-    }
+  public Integer getSubtotal() {
+    return subtotal;
+  }
 
-    public Double getTotal() {
-        return total;
-    }
+  public void setSubtotal(Integer subtotal) {
+    this.subtotal = subtotal;
+  }
 
-    public void setTotal(Double total) {
-        this.total = total;
-    }
+  public Integer getImpostos() {
+    return impostos;
+  }
 
-    public List<ItemCarrinho> getProdutos() {
-        return produtos;
-    }
+  public void setImpostos(Integer impostos) {
+    this.impostos = impostos;
+  }
 
-    public void setProdutos(List<ItemCarrinho> produtos) {
-        this.produtos = produtos;
-    }
+  public Integer getTotal() {
+    return total;
+  }
 
-    
+  public void setTotal(Integer total) {
+    this.total = total;
+  }
 
-    
+  public List<ItemCarrinho> getProdutos() {
+    return produtos;
+  }
+
+  public void setProdutos(List<ItemCarrinho> produtos) {
+    this.produtos = produtos;
+  }
+
 }

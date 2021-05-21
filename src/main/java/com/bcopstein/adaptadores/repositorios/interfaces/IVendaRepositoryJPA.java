@@ -7,6 +7,5 @@ import com.bcopstein.negocio.entidades.Venda;
 import org.springframework.data.repository.CrudRepository;
 
 public interface IVendaRepositoryJPA extends CrudRepository<Venda, Integer> {
-    
-    List<Venda> findAll();
+  List<Venda> findAll();
 }

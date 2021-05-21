@@ -10,23 +10,21 @@ import org.springframework.stereotype.Component;
 @Component
 public class Estoque_IMPL implements IEstoqueRepository {
 
-    private IEstoqueRepositoryJPA estoqueRepository;
+  private IEstoqueRepositoryJPA estoqueRepository;
 
-    
-    @Autowired
-    public Estoque_IMPL(IEstoqueRepositoryJPA estoqueRepository) {
-        this.estoqueRepository = estoqueRepository;
-    }
+  @Autowired
+  public Estoque_IMPL(IEstoqueRepositoryJPA estoqueRepository) {
+    this.estoqueRepository = estoqueRepository;
+  }
 
-    @Override
-    public ItemEstoque getProduto(int codigo) {
-       return estoqueRepository.findByCodEstoque(codigo);
-    }
+  @Override
+  public ItemEstoque getProduto(int codigo) {
+    return estoqueRepository.findByProdutoCodigo(codigo);
+  }
 
-    @Override
-    public void atualizaProduto(ItemEstoque itemEstoque) {
-       estoqueRepository.save(itemEstoque);        
-    }
-    
+  @Override
+  public void atualizaProduto(ItemEstoque itemEstoque) {
+    estoqueRepository.save(itemEstoque);
+  }
 
 }

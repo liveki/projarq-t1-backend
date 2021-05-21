@@ -12,19 +12,16 @@ import org.springframework.stereotype.Component;
 @Component
 public class Produto_IMPL implements IProdutoRepository {
 
-    private IProdutoRepositoryJPA produtoRepository;
+  private IProdutoRepositoryJPA produtoRepository;
 
-    
-    @Autowired
-    public Produto_IMPL(IProdutoRepositoryJPA produtoRepository) {
-        this.produtoRepository = produtoRepository;
-    }
+  @Autowired
+  public Produto_IMPL(IProdutoRepositoryJPA produtoRepository) {
+    this.produtoRepository = produtoRepository;
+  }
 
-    @Override
-    public List<Produto> todos() {
-        return produtoRepository.findAll();
-    }
+  @Override
+  public List<Produto> todos() {
+    return produtoRepository.findAll();
+  }
 
-    
-    
 }
