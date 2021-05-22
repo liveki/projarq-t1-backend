@@ -29,6 +29,8 @@ public class ServicoVenda {
 
     if (vendaIsValida) {
       this.vendaRepository.cadastra(novaVenda);
+
+      return true;
     }
 
     return false;

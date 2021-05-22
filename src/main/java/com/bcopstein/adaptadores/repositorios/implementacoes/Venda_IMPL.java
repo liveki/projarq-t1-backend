@@ -21,13 +21,16 @@ public class Venda_IMPL implements IVendaRepository {
 
   @Override
   public void cadastra(Venda venda) {
-    vendaRepository.save(venda);
+    Venda vendaCriada = vendaRepository.save(venda);
+    System.out.println("entrou aqui");
+     
 
   }
 
   @Override
   public List<Venda> todos() {
-    return vendaRepository.findAll();
+    List<Venda> vendas = vendaRepository.findAll();
+    return vendas;
   }
 
 }

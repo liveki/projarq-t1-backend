@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Venda {
@@ -21,7 +22,7 @@ public class Venda {
   private Integer impostos;
   private Integer total;
 
-  @Embedded
+  @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
   private List<ItemCarrinho> produtos;
 
   public Venda(Integer codVenda, Integer subtotal, Integer impostos, Integer total, List<ItemCarrinho> produtos) {
@@ -30,6 +31,10 @@ public class Venda {
     this.impostos = impostos;
     this.total = total;
     this.produtos = produtos;
+  }
+
+  public Venda(){
+
   }
 
   public Venda(Integer subtotal, Integer impostos, Integer total, List<ItemCarrinho> produtos) {

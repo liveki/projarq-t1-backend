@@ -2,6 +2,7 @@ package com.bcopstein.adaptadores.controllers;
 
 import java.util.List;
 
+import com.bcopstein.adaptadores.controllers.DTO.SubtotalDTO;
 import com.bcopstein.aplicacao.casosDeUso.CadastraVendaUC;
 import com.bcopstein.aplicacao.casosDeUso.ConsultaVendaUC;
 import com.bcopstein.aplicacao.casosDeUso.ConsultaVendasUC;
@@ -43,13 +44,13 @@ public class VendaController {
 
   @PostMapping("/confirmacao")
   @CrossOrigin(origins = "*")
-  public boolean confirmaVenda(@RequestBody final List<ItemCarrinho> itens) {
+  public Boolean confirmaVenda(@RequestBody final List<SubtotalDTO> itens) {
     return cadastraVenda.executar(itens);
   }
 
   @PostMapping("/subtotal")
   @CrossOrigin(origins = "*")
-  public Integer[] calculaSubtotal(@RequestBody final List<ItemCarrinho> itens) {
+  public Integer[] calculaSubtotal(@RequestBody final List<SubtotalDTO> itens) {
     return consultaVenda.executar(itens);
   }
 
