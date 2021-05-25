@@ -2,7 +2,6 @@ package com.bcopstein.negocio.entidades;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 
 @Entity
 public class Produto {
@@ -12,25 +11,11 @@ public class Produto {
   private String descricao;
   private Double preco;
 
-  @OneToOne(mappedBy = "produto")
-  private ItemCarrinho itemCarrinho;
-
   public Produto(Integer codigo, String descricao, Double preco) {
     this.codigo = codigo;
     this.descricao = descricao;
     this.preco = preco;
   }
-
-
-  public ItemCarrinho getItemCarrinho() {
-    return itemCarrinho;
-  }
-
-
-  public void setItemCarrinho(ItemCarrinho itemCarrinho) {
-    this.itemCarrinho = itemCarrinho;
-  }
-
 
   public Produto() {
   }

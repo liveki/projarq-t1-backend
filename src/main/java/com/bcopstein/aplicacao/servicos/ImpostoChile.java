@@ -1,14 +1,23 @@
 package com.bcopstein.aplicacao.servicos;
 
+import java.util.List;
+
+import com.bcopstein.negocio.entidades.ItemCarrinho;
+
 public class ImpostoChile implements ICalculoImposto {
   private static final Integer VALOR_PARA_IVA_MINIMO = 8000;
 
   @Override
-  public Integer calculaImposto(Integer valorTotalCompra) {
+  public Integer calculaImposto(List<ItemCarrinho> produtos) {
     Integer porcentagemImposto = 15;
-    
-    if(valorTotalCompra > VALOR_PARA_IVA_MINIMO){
-      
+    Integer valorTotalCompra = 0;
+
+    for (ItemCarrinho produto : produtos) {
+      valorTotalCompra += produto.getPrecoUnitario() * produto.getQuantidade();
+    }
+
+    if (valorTotalCompra > VALOR_PARA_IVA_MINIMO) {
+
       Integer valorRestante = valorTotalCompra - VALOR_PARA_IVA_MINIMO;
       Integer valorParcial = VALOR_PARA_IVA_MINIMO * porcentagemImposto / 100;
 
@@ -18,7 +27,6 @@ public class ImpostoChile implements ICalculoImposto {
       return valorParcial + valorRestante;
     }
 
-    
     return valorTotalCompra * porcentagemImposto / 100;
   }
 

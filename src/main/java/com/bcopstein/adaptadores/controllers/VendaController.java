@@ -7,7 +7,6 @@ import com.bcopstein.aplicacao.casosDeUso.CadastraVendaUC;
 import com.bcopstein.aplicacao.casosDeUso.ConsultaVendaUC;
 import com.bcopstein.aplicacao.casosDeUso.ConsultaVendasUC;
 import com.bcopstein.aplicacao.casosDeUso.VerificaEstoqueProdutoUC;
-import com.bcopstein.negocio.entidades.ItemCarrinho;
 import com.bcopstein.negocio.entidades.Venda;
 
 import org.springframework.beans.factory.annotation.Autowired;

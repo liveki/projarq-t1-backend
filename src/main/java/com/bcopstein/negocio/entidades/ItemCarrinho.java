@@ -1,12 +1,10 @@
 package com.bcopstein.negocio.entidades;
 
-import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 
 @Entity
 public class ItemCarrinho {
@@ -14,26 +12,19 @@ public class ItemCarrinho {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Integer codigo;
 
-  @OneToOne(cascade = CascadeType.ALL)
-  @JoinColumn(name = "codigo", referencedColumnName = "codigo")
-  private Produto produto;
+  @Column(name = "cod_produto")
+  private Integer codProduto;
+  private Integer precoUnitario;
   private int quantidade;
 
-  public ItemCarrinho(Produto produto, int quantidade) {
-    this.produto = produto;
+  public ItemCarrinho(Integer codProduto, Integer precoUnitario, int quantidade) {
+    this.codProduto = codProduto;
+    this.precoUnitario = precoUnitario;
     this.quantidade = quantidade;
   }
 
-  public ItemCarrinho(){
-    
-  }
+  public ItemCarrinho() {
 
-  public Produto getProduto() {
-    return produto;
-  }
-
-  public void setProduto(Produto produto) {
-    this.produto = produto;
   }
 
   public int getQuantidade() {
@@ -44,8 +35,25 @@ public class ItemCarrinho {
     this.quantidade = quantidade;
   }
 
+  public Integer getCodProduto() {
+    return codProduto;
+  }
+
+  public void setCodProduto(Integer codProduto) {
+    this.codProduto = codProduto;
+  }
+
+  public Integer getPrecoUnitario() {
+    return precoUnitario;
+  }
+
+  public void setPrecoUnitario(Integer precoUnitario) {
+    this.precoUnitario = precoUnitario;
+  }
+
   @Override
   public String toString() {
-    return "ItemCarrinho [produto=" + produto.toString() + ", qtd=" + quantidade + "]";
+    return "ItemCarrinho [codProduto=" + codProduto + ", codigo=" + codigo + ", precoUnitario=" + precoUnitario
+        + ", quantidade=" + quantidade + "]";
   }
 }

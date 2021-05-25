@@ -25,4 +25,11 @@ public class ServicoEstoque {
     return disponivel;
   }
 
+  public void atualizaProduto(ItemEstoque itemEstoque) {
+    estoqueRepository.atualizaProduto(itemEstoque);
+  }
+
+  public ItemEstoque getProduto(int codProduto) {
+    return estoqueRepository.getProduto(codProduto);
+  }
 }

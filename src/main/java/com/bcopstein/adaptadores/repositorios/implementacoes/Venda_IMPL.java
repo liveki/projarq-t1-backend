@@ -21,10 +21,7 @@ public class Venda_IMPL implements IVendaRepository {
 
   @Override
   public void cadastra(Venda venda) {
-    Venda vendaCriada = vendaRepository.save(venda);
-    System.out.println("entrou aqui");
-     
-
+    vendaRepository.save(venda);
   }
 
   @Override
